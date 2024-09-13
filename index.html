@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./loco.css">
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet"
 />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-
+    <div id="mini-circle"></div>
     <div id="main">
 
         <div id="hero-section">
@@ -22,16 +23,27 @@
                 <h4>MENU+</h4>
             </div>
             <div id="heading">
-                <h1>FrontEnd</h1>
+                <div class="bounding">
+                    <h1 class="bound-elem">FrontEnd</h1>
+                </div>
                 <div class="blocktxt">
-                    <h1 id="second-heading">Developer</h1>
-                    <h5>Based in Mumbai</h5>
+                    <div class="bounding">
+                        <h1 id="second-heading" class="bound-elem">Developer</h1>
+                    </div>
+                    <div class="bounding">
+                        <h5 class="bound-elem">Based in Mumbai</h5>
+                    </div>
+                    
                 </div>
 
             </div>
             <div id="small-headings">
-                <h5>available for freelance</h5>
-                <h5>work from may 2024</h5>
+                <div class="bounding">
+                    <h5 class="bound-elem">available for freelance</h5>
+                </div>
+                <div class="bounding">
+                    <h5 class="bound-elem">work from may 2024</h5>
+                </div>
             </div>
             <div id="hero-footer">
                 <a href="#">currently working as student
@@ -97,6 +109,10 @@
                 <a href="3">dribble</a><a href="#">instagram</a><a href="#">twitter</a><a href="#">linkedin</a>
             </div>
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+        <script src="./script.js"></script>
     </div>
 </body>
 
