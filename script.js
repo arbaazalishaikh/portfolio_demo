@@ -30,6 +30,8 @@ function firstPageAnimation() {
         })
 }
 
+var timeout;
+
 function circleSqueeze() {
     //default scale value
     var xscale = 1;
@@ -39,6 +41,8 @@ function circleSqueeze() {
     var yprev = 0;
 
     window.addEventListener('mousemove', function (details) {
+        clearTimeout(timeout);
+
         // var xdiff = details.clientX - xprev;
         // var ydiff = details.clientY- yprev;
         xscale = gsap.utils.clamp(0.8, 1.2, details.clientX - xprev);
@@ -49,6 +53,10 @@ function circleSqueeze() {
 
         circleMove(xscale, yscale)
         // console.log(xdiff, ydiff);
+
+        timeout = setTimeout(function () {
+            document.querySelector('#mini-circle').style.transform = `translate(${details.clientX}px, ${details.clientY}px) scale(1,1)`;
+        }, 100)
     })
 }
 
@@ -62,3 +70,15 @@ function circleMove(xscale, yscale) {
 circleMove();
 firstPageAnimation();
 circleSqueeze();
+
+
+const elements = document.querySelectorAll('.element');
+
+elements.forEach(function (elem) {
+    elem.addEventListener('mousemove', function (details) {
+        gsap.to(elem.querySelector('.image'), {
+            opacity: 1,
+            ease: Power1,
+        })
+    });
+});
