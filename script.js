@@ -72,13 +72,29 @@ firstPageAnimation();
 circleSqueeze();
 
 
-const elements = document.querySelectorAll('.element');
+document.querySelectorAll('.element').forEach(function (elem) {
+    var rotate = 0;
+    var diffrot = 0;
 
-elements.forEach(function (elem) {
-    elem.addEventListener('mousemove', function (details) {
+    elem.addEventListener('mousemove', (details) => {
+        var diff = details.clientY - elem.getBoundingClientRect().top;
+        diffrot = details.clientX - rotate;
+        rotate = details.clientX
+
         gsap.to(elem.querySelector('.image'), {
             opacity: 1,
-            ease: Power1,
-        })
+            ease: Power3,
+            top: diff,
+            left: details.clientX,
+            rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5)
+        });
+    });
+
+    elem.addEventListener('mouseleave', () => {
+        gsap.to(elem.querySelector('.image'), {
+            opacity: 0,
+            ease: Power3,
+            duration: 0.5,
+        });
     });
 });
